@@ -1,5 +1,16 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
-vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = false })
-vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = false })
+-- better API
+local map = vim.keymap.set
+
+-- exit insert mode
+map("i", "jj", "<Esc>", { desc = "Exit insert mode" })
+map("i", "jk", "<Esc>", { desc = "Exit insert mode" })
+
+-- toggle terminal
+map("n", "<C-j>", function()
+  require("toggleterm").toggle()
+end, { desc = "Toggle Terminal" })
+
+map("t", "<C-j>", function()
+  vim.cmd("stopinsert")
+  require("toggleterm").toggle()
+end, { desc = "Toggle Terminal" })
