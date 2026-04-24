@@ -35,7 +35,6 @@ require("lazy").setup({
     version = false,
   },
   -- Ensure Tokyonight is the priority for that high-tech look
-  install = { colorscheme = { "tokyonight" } },
   checker = { enabled = true, notify = false },
   performance = {
     rtp = {
