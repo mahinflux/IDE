@@ -6,11 +6,11 @@ map("i", "jj", "<Esc>", { desc = "Exit insert mode" })
 map("i", "jk", "<Esc>", { desc = "Exit insert mode" })
 
 -- toggle terminal
-map("n", "<C-j>", function()
+map("n", "<C-t>", function()
   require("toggleterm").toggle()
 end, { desc = "Toggle Terminal" })
 
-map("t", "<C-j>", function()
+map("t", "<C-t>", function()
   vim.cmd("stopinsert")
   require("toggleterm").toggle()
 end, { desc = "Toggle Terminal" })

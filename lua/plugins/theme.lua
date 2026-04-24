@@ -1,4 +1,4 @@
-local THEME = "tokyonight" -- "tokyonight" | "vercel" | "oxocarbon"
+-- local THEME = "tokyonight" -- "tokyonight" | "vercel" | "oxocarbon"
 -- local THEME = "vercel" -- "tokyonight" | "vercel" | "oxocarbon"
 -- local THEME = "oxocarbon" -- "tokyonight" | "vercel" | "oxocarbon"
 return {
