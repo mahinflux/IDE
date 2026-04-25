@@ -1,10 +1,10 @@
 -- =========================
 -- THEME SELECTOR
 -- =========================
-local THEME = "tokyonight" -- "tokyonight" | "vercel" | "oxocarbon"
+local THEME = "oxocarbon" -- "tokyonight" | "vercel" | "oxocarbon"
 
 -- TOKYONIGHT VARIANT
-local TOKYO_STYLE = "storm" -- "night" | "storm" | "day" | "moon"
+local TOKYO_STYLE = "night" -- "night" | "storm" | "day" | "moon"
 
 return {
   -- =========================

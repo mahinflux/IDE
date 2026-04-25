@@ -17,25 +17,38 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     -- 1. THE CORE
+    -- This already includes: persistence, todo-comments, conform, and nvim-lint.
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
-    -- 2. THE ENGINE (The "Full IDE" parts - No UI changes here)
+    -- 2. THE EXTRAS (Only the ones NOT in core)
+
+    -- Languages
     { import = "lazyvim.plugins.extras.lang.python" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.tailwind" },
-    { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.go" },
-    -- Note: mini-starter is DELETED to bring back your old dashboard
+    { import = "lazyvim.plugins.extras.lang.markdown" },
+    { import = "lazyvim.plugins.extras.lang.helm" },
 
-    -- 3. YOUR PLUGINS
+    -- Editor & UI
+    { import = "lazyvim.plugins.extras.coding.blink" }, -- New completion engine
+    { import = "lazyvim.plugins.extras.editor.fzf" }, -- Faster than Telescope
+    { import = "lazyvim.plugins.extras.editor.harpoon2" },
+    { import = "lazyvim.plugins.extras.editor.inc-rename" },
+    { import = "lazyvim.plugins.extras.ui.mini-indentscope" },
+
+    -- Tools
+    { import = "lazyvim.plugins.extras.dap.core" }, -- Debugger
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
+
+    -- 3. YOUR CUSTOM PLUGINS
     { import = "plugins" },
   },
   defaults = {
     lazy = false,
     version = false,
   },
-  -- Ensure Tokyonight is the priority for that high-tech look
   checker = { enabled = true, notify = false },
   performance = {
     rtp = {
