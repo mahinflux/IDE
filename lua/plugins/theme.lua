@@ -1,6 +1,11 @@
--- local THEME = "tokyonight" -- "tokyonight" | "vercel" | "oxocarbon"
--- local THEME = "vercel" -- "tokyonight" | "vercel" | "oxocarbon"
--- local THEME = "oxocarbon" -- "tokyonight" | "vercel" | "oxocarbon"
+-- =========================
+-- THEME SELECTOR
+-- =========================
+local THEME = "tokyonight" -- "tokyonight" | "vercel" | "oxocarbon"
+
+-- TOKYONIGHT VARIANT
+local TOKYO_STYLE = "storm" -- "night" | "storm" | "day" | "moon"
+
 return {
   -- =========================
   -- TOKYONIGHT
@@ -10,7 +15,7 @@ return {
     lazy = THEME ~= "tokyonight",
     priority = 1000,
     opts = {
-      style = "night",
+      style = TOKYO_STYLE,
       transparent = false,
       styles = {
         sidebars = "transparent",
@@ -20,7 +25,7 @@ return {
     config = function(_, opts)
       require("tokyonight").setup(opts)
       if THEME == "tokyonight" then
-        vim.cmd.colorscheme("tokyonight-" .. opts.style)
+        vim.cmd.colorscheme("tokyonight-" .. TOKYO_STYLE)
       end
     end,
   },
@@ -34,7 +39,7 @@ return {
     priority = 1000,
     config = function()
       require("vercel").setup({
-        theme = "dark",
+        theme = "dark", -- "dark" | "light"
         transparent = false,
         italics = {
           comments = true,
@@ -68,7 +73,7 @@ return {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = ({
-        tokyonight = "tokyonight-night",
+        tokyonight = "tokyonight-" .. TOKYO_STYLE,
         vercel = "vercel",
         oxocarbon = "oxocarbon",
       })[THEME],
