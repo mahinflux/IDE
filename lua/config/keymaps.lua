@@ -5,7 +5,7 @@ local map = vim.keymap.set
 map("i", "jj", "<Esc>", { desc = "Exit insert mode" })
 map("i", "jk", "<Esc>", { desc = "Exit insert mode" })
 
--- toggle terminal
+-- toggle secondery terminal terminal
 map("n", "<C-t>", function()
   require("toggleterm").toggle()
 end, { desc = "Toggle Terminal" })
