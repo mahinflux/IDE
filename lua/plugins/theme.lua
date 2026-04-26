@@ -1,10 +1,28 @@
 -- =========================
 -- THEME SELECTOR
 -- =========================
-local THEME = "tokyonight" -- "tokyonight" | "vercel" | "oxocarbon"
+local THEME = "nightfox" -- "tokyonight" | "nightfox"
 
--- TOKYONIGHT VARIANT
-local TOKYO_STYLE = "night" -- "night" | "storm" | "day" | "moon"
+-- =========================
+-- TOKYONIGHT VARIANTS
+-- =========================
+local TOKYO_STYLE = "night"
+-- "night"
+-- "storm"
+-- "day"
+-- "moon"
+
+-- =========================
+-- NIGHTFOX VARIANTS
+-- =========================
+local FOX_STYLE = "carbonfox"
+-- "nightfox"
+-- "dayfox"
+-- "dawnfox"
+-- "duskfox"
+-- "nordfox"
+-- "terafox"
+-- "carbonfox"
 
 return {
   -- =========================
@@ -22,46 +40,40 @@ return {
         floats = "transparent",
       },
     },
-    config = function(_, opts)
-      require("tokyonight").setup(opts)
-      if THEME == "tokyonight" then
-        vim.cmd.colorscheme("tokyonight-" .. TOKYO_STYLE)
-      end
-    end,
   },
 
   -- =========================
-  -- VERCEL
+  -- NIGHTFOX
   -- =========================
   {
-    "tiesen243/vercel.nvim",
-    lazy = THEME ~= "vercel",
+    "EdenEast/nightfox.nvim",
+    lazy = THEME ~= "nightfox",
     priority = 1000,
-    config = function()
-      require("vercel").setup({
-        theme = "dark", -- "dark" | "light"
+    opts = {
+      options = {
         transparent = false,
-        italics = {
-          comments = true,
-          keywords = true,
+        styles = {
+          comments = "italic",
+          keywords = "bold",
+          types = "italic,bold",
         },
-      })
-      if THEME == "vercel" then
-        vim.cmd.colorscheme("vercel")
-      end
-    end,
+      },
+    },
   },
 
   -- =========================
-  -- LazyVim base
+  -- LAZYVIM CORE
   -- =========================
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = ({
-        tokyonight = "tokyonight-" .. TOKYO_STYLE,
-        vercel = "vercel",
-      })[THEME],
+      colorscheme = (function()
+        if THEME == "tokyonight" then
+          return "tokyonight-" .. TOKYO_STYLE
+        elseif THEME == "nightfox" then
+          return FOX_STYLE
+        end
+      end)(),
     },
   },
 }
