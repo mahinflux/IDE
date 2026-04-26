@@ -1,7 +1,7 @@
 -- =========================
 -- THEME SELECTOR
 -- =========================
-local THEME = "oxocarbon" -- "tokyonight" | "vercel" | "oxocarbon"
+local THEME = "tokyonight" -- "tokyonight" | "vercel" | "oxocarbon"
 
 -- TOKYONIGHT VARIANT
 local TOKYO_STYLE = "night" -- "night" | "storm" | "day" | "moon"
@@ -53,20 +53,6 @@ return {
   },
 
   -- =========================
-  -- OXOCARBON
-  -- =========================
-  {
-    "nyoom-engineering/oxocarbon.nvim",
-    lazy = THEME ~= "oxocarbon",
-    priority = 1000,
-    config = function()
-      if THEME == "oxocarbon" then
-        vim.cmd.colorscheme("oxocarbon")
-      end
-    end,
-  },
-
-  -- =========================
   -- LazyVim base
   -- =========================
   {
@@ -75,7 +61,6 @@ return {
       colorscheme = ({
         tokyonight = "tokyonight-" .. TOKYO_STYLE,
         vercel = "vercel",
-        oxocarbon = "oxocarbon",
       })[THEME],
     },
   },
