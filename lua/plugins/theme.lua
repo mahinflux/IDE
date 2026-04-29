@@ -1,8 +1,9 @@
 -- =========================
 -- THEME SELECTOR
 -- =========================
-local THEME = "nightfox" -- "tokyonight" | "nightfox"
-
+-- local THEME = "tokyonight" -- "tokyonight" | "nightfox"
+-- local THEME = "nightfox" -- "tokyonight" | "nightfox"
+local THEME = "vercel" --vercel
 -- =========================
 -- TOKYONIGHT VARIANTS
 -- =========================
@@ -57,6 +58,24 @@ return {
           keywords = "bold",
           types = "italic,bold",
         },
+      },
+    },
+  },
+  {
+    -- add vercel.nvim
+    {
+      "tiesen243/vercel.nvim",
+      opts = {
+        -- optional configuration here
+        trasparent = false, -- or true if you want transparency
+        style = "dark", -- "dark" or "light"
+      },
+    },
+    -- Configure LazyVim to load vercel.nvim
+    {
+      "LazyVim/LazyVim",
+      opts = {
+        colorscheme = "vercel",
       },
     },
   },
