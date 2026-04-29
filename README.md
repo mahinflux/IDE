@@ -33,3 +33,7 @@ A high-performance, keyboard-driven development environment built on **LazyVim**
 │       └── web.lua      # Frontend toolchain
 └── stylua.toml          # Lua formatting
 ```
+
+---
+
+## Install

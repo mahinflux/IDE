@@ -4,7 +4,7 @@ return {
     branch = "master",
     init = function()
       vim.g.VM_maps = {
-        ["Find Under"] = "<C-d>", -- add next match
+        ["Find Under"] = "<C-n>", -- add next match
         ["Find Subword Under"] = "<C-d>",
         ["Skip Region"] = "<C-x>", -- skip current match
         ["Remove Region"] = "<C-p>", -- remove cursor

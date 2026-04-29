@@ -10,10 +10,11 @@ map("n", "<C-t>", function()
   require("toggleterm").toggle()
 end, { desc = "Toggle Terminal" })
 
-map("t", "<C-t>", function()
-  vim.cmd("stopinsert")
-  require("toggleterm").toggle()
-end, { desc = "Toggle Terminal" })
-
 --command panel open
 vim.keymap.set("n", ";", ":", { desc = "CMD enter command mode" })
+
+--minty keymap
+map("n", "<C-t>", function()
+  require("plenary.reload").reload_module("minty.huefy")
+  require("minty.huefy").open()
+end, {})
