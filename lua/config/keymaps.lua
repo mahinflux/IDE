@@ -3,7 +3,6 @@ local map = vim.keymap.set
 
 -- exit insert mode
 map("i", "jj", "<Esc>", { desc = "Exit insert mode" })
-map("i", "jk", "<Esc>", { desc = "Exit insert mode" })
 
 -- toggle secondery terminal terminal
 map("n", "<C-t>", function()

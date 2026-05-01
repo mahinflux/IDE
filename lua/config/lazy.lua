@@ -37,7 +37,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
     { import = "lazyvim.plugins.extras.editor.inc-rename" },
     { import = "lazyvim.plugins.extras.ui.mini-indentscope" },
-
     -- Tools
     { import = "lazyvim.plugins.extras.dap.core" }, -- Debugger
     { import = "lazyvim.plugins.extras.formatting.prettier" },
