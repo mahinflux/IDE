@@ -12,20 +12,19 @@ return {
               includeCompletionsForImportStatements = true,
             },
             suggest = {
-              completeFunctionCalls = false, -- 🔥 disable auto ()
+              completeFunctionCalls = false,
             },
             updateImportsOnFileMove = {
               enabled = "always",
             },
           },
-
           javascript = {
             preferences = {
               includeCompletionsForModuleExports = true,
               includeCompletionsForImportStatements = true,
             },
             suggest = {
-              completeFunctionCalls = false, -- 🔥 disable auto ()
+              completeFunctionCalls = false,
             },
             updateImportsOnFileMove = {
               enabled = "always",
@@ -40,18 +39,7 @@ return {
     },
   },
 
-  config = function(_, opts)
-    local lspconfig = require("lspconfig")
-
-    -- Setup servers
-    for server, config in pairs(opts.servers) do
-      if config.enabled ~= false then
-        lspconfig[server].setup(config)
-      end
-    end
-
-    -- 🔥 Disable annoying UI behavior
-
+  init = function()
     -- No auto hover popups
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "none" })
 
@@ -60,7 +48,7 @@ return {
       return
     end
 
-    -- Manual hover only
+    -- Manual hover key
     vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Docs" })
   end,
 }
