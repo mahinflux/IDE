@@ -6,3 +6,11 @@ debug
 foo.*
 *.log
 data
+# NEVER commit these
+~/.config/codeium/
+~/.local/share/nvim/
+~/.cache/
+
+# Neovim local state
+plugin/
+lazy-lock.json
