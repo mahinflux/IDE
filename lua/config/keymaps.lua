@@ -1,16 +1,17 @@
--- better API
+-- ~/.config/nvim/lua/config/keymaps.lua
+
 local map = vim.keymap.set
 
--- exit insert mode
+-- =========================
+-- BASIC EDITING (safe)
+-- =========================
+
+-- exit insert mode quickly
 map("i", "jj", "<Esc>", { desc = "Exit insert mode" })
+map("i", "kj", "<Esc>", { desc = "Exit insert mode" })
 
--- toggle secondery terminal terminal
-map("n", "<C-t>", function()
-  require("toggleterm").toggle()
-end, { desc = "Toggle Terminal" })
-
---command panel open
-vim.keymap.set("n", ";", ":", { desc = "CMD enter command mode" })
+-- command mode
+map("n", ";", ":", { desc = "CMD mode" })
 
 --minty keymap
 map("n", "<C-t>", function()
@@ -18,24 +19,34 @@ map("n", "<C-t>", function()
   require("minty.huefy").open()
 end, {})
 
--- ~/.config/nvim/lua/config/keymaps.lua
+-- =========================
+-- CODEIUM (AI completion only)
+-- =========================
 
 -- Accept suggestion
-vim.keymap.set("i", "<C-l>", function()
-  return vim.fn["codeium#Accept"]()
-end, { expr = true, silent = true })
+map("i", "<C-l>", function()
+  if vim.fn.exists("*codeium#Accept") == 1 then
+    return vim.fn["codeium#Accept"]()
+  end
+end, { expr = true, silent = true, desc = "Codeium accept" })
 
 -- Next suggestion
-vim.keymap.set("i", "<C-]>", function()
-  return vim.fn
-end, { expr = true, silent = true })
+map("i", "<C-]>", function()
+  if vim.fn.exists("*codeium#CycleCompletions") == 1 then
+    return vim.fn
+  end
+end, { expr = true, silent = true, desc = "Codeium next" })
 
 -- Previous suggestion
-vim.keymap.set("i", "<C-[>", function()
-  return vim.fn["codeium#CycleCompletions"](-1)
-end, { expr = true, silent = true })
+map("i", "<C-[>", function()
+  if vim.fn.exists("*codeium#CycleCompletions") == 1 then
+    return vim.fn["codeium#CycleCompletions"](-1)
+  end
+end, { expr = true, silent = true, desc = "Codeium previous" })
 
 -- Clear suggestion
-vim.keymap.set("i", "<C-x>", function()
-  return vim.fn["codeium#Clear"]()
-end, { expr = true, silent = true })
+map("i", "<C-x>", function()
+  if vim.fn.exists("*codeium#Clear") == 1 then
+    return vim.fn["codeium#Clear"]()
+  end
+end, { expr = true, silent = true, desc = "Codeium clear" })
