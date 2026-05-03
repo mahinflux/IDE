@@ -12,15 +12,4 @@ return {
       }
     end,
   },
-} -- Core workflow (this is 90% of usage)
--- Ctrl + n
--- → Select word under cursor, press again to add next match
--- Shift + Ctrl + n
--- → Skip current match (go to next)
--- Alt + n
--- → Select all matches at once
---
--- Once multiple cursors are active:
---
--- Just type → edits happen everywhere
--- c, d, i, etc. all work
+}
