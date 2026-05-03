@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 -- TokyoNight (Fully Refined Configuration)
 
+=======
+>>>>>>> 9aca28e (tweask)
 return {
   "folke/tokyonight.nvim",
   priority = 1000,
 
   config = function()
+<<<<<<< HEAD
     -- No transparency (ensures proper layering)
     local transparent = false
 
@@ -31,6 +35,33 @@ return {
 
     -- UI
     local border = "#3B4A5F"
+=======
+    local transparent = false
+
+    -- Softer, flatter background scale
+    local bg = "#0D1117"
+    local bg_dark = "#0A0E14"
+    local bg_high = "#151A22"
+    local bg_visual = "#1A2230"
+    local bg_search = "#22304A"
+
+    -- Softer foreground (less contrast)
+    local fg = "#C8D3E0"
+    local fg_dark = "#9AA7B5"
+    local fg_gutter = "#4B5563"
+
+    -- Muted accents (reduced saturation)
+    local blue = "#6C8EDC"
+    local cyan = "#6FA8B8"
+    local green = "#8FB573"
+    local magenta = "#A48AD4"
+    local orange = "#C6905A"
+    local red = "#C06A7A"
+    local yellow = "#C2A86C"
+
+    -- Subtle borders
+    local border = "#2A3442"
+>>>>>>> 9aca28e (tweask)
 
     require("tokyonight").setup({
       style = "night",
@@ -70,24 +101,41 @@ return {
 
       on_highlights = function(_, c)
         return {
+<<<<<<< HEAD
+=======
+          -- Reduce cursor contrast
+>>>>>>> 9aca28e (tweask)
           CursorLine = { bg = c.bg_highlight },
           CursorColumn = { bg = c.bg_highlight },
 
           LineNr = { fg = c.fg_gutter },
+<<<<<<< HEAD
           CursorLineNr = { fg = c.yellow, bold = true },
 
           Search = { bg = c.orange, fg = c.bg, bold = true },
           IncSearch = { bg = c.red, fg = c.bg, bold = true },
+=======
+          CursorLineNr = { fg = c.fg, bold = false },
+
+          -- Make search less aggressive
+          Search = { bg = c.bg_search, fg = c.fg },
+          IncSearch = { bg = c.bg_visual, fg = c.fg },
+>>>>>>> 9aca28e (tweask)
 
           Visual = { bg = c.bg_visual },
 
           NormalFloat = { bg = c.bg_float },
+<<<<<<< HEAD
           FloatBorder = { fg = c.blue, bg = c.bg_float },
+=======
+          FloatBorder = { fg = c.border, bg = c.bg_float },
+>>>>>>> 9aca28e (tweask)
 
           StatusLine = { bg = c.bg_dark, fg = c.fg },
           StatusLineNC = { bg = c.bg_dark, fg = c.fg_gutter },
 
           Pmenu = { bg = c.bg_dark, fg = c.fg },
+<<<<<<< HEAD
           PmenuSel = { bg = c.blue, fg = c.bg, bold = true },
           PmenuSbar = { bg = c.bg_dark },
           PmenuThumb = { bg = c.blue },
@@ -97,6 +145,19 @@ return {
           TelescopeResultsBorder = { fg = c.bg_highlight, bg = c.bg_dark },
           TelescopePreviewBorder = { fg = c.magenta, bg = c.bg_dark },
 
+=======
+          PmenuSel = { bg = c.bg_highlight, fg = c.fg },
+          PmenuSbar = { bg = c.bg_dark },
+          PmenuThumb = { bg = c.bg_highlight },
+
+          -- Borders no longer scream for attention
+          TelescopeBorder = { fg = c.border, bg = c.bg_dark },
+          TelescopePromptBorder = { fg = c.border, bg = c.bg_dark },
+          TelescopeResultsBorder = { fg = c.border, bg = c.bg_dark },
+          TelescopePreviewBorder = { fg = c.border, bg = c.bg_dark },
+
+          -- Diagnostics still visible but not neon
+>>>>>>> 9aca28e (tweask)
           DiagnosticError = { fg = c.red },
           DiagnosticWarn = { fg = c.yellow },
           DiagnosticInfo = { fg = c.blue },

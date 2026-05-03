@@ -50,3 +50,11 @@ map("i", "<C-x>", function()
     return vim.fn["codeium#Clear"]()
   end
 end, { expr = true, silent = true, desc = "Codeium clear" })
+
+-- Resize vertical splits (Neo-tree included)
+vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -3<cr>", { desc = "Resize left" })
+vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +3<cr>", { desc = "Resize right" })
+
+-- Optional: horizontal resizing too
+vim.keymap.set("n", "<A-h>", "<cmd>vertical resize -3<cr>", { desc = "Resize left" })
+vim.keymap.set("n", "<A-l>", "<cmd>vertical resize +3<cr>", { desc = "Resize right" })
