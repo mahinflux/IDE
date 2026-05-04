@@ -1,154 +1,42 @@
--- TokyoNight (Fully Refined Configuration)
-
 return {
   "folke/tokyonight.nvim",
   priority = 1000,
-
   config = function()
-    -- No transparency (ensures proper layering)
-    local transparent = false
+    local transparent = false -- set to true if you would like to enable transparency
 
-    -- Background layers
-    local bg = "#0A0F1C"
-    local bg_dark = "#070B14"
-    local bg_high = "#1A2A44"
-    local bg_visual = "#213B5A"
-    local bg_search = "#2B6CB0"
-
-    -- Foreground
-    local fg = "#D6E4F0"
-    local fg_dark = "#A9C0D9"
-    local fg_gutter = "#5B6B82"
-
-    -- Accent colors
-    local blue = "#7AA2F7"
-    local cyan = "#7DCFFF"
-    local green = "#9ECE6A"
-    local magenta = "#BB9AF7"
-    local orange = "#FF9E64"
-    local red = "#F7768E"
-    local yellow = "#E0AF68"
-
-    -- UI
-    local border = "#3B4A5F"
-    local transparent = false
-
-    -- Softer, flatter background scale
-    local bg = "#0D1117"
-    local bg_dark = "#0A0E14"
-    local bg_high = "#151A22"
-    local bg_visual = "#1A2230"
-    local bg_search = "#22304A"
-
-    -- Softer foreground (less contrast)
-    local fg = "#C8D3E0"
-    local fg_dark = "#9AA7B5"
-    local fg_gutter = "#4B5563"
-
-    -- Muted accents (reduced saturation)
-    local blue = "#6C8EDC"
-    local cyan = "#6FA8B8"
-    local green = "#8FB573"
-    local magenta = "#A48AD4"
-    local orange = "#C6905A"
-    local red = "#C06A7A"
-    local yellow = "#C2A86C"
-
-    -- Subtle borders
-    local border = "#2A3442"
+    local bg = "#011628"
+    local bg_dark = "#011423"
+    local bg_highlight = "#143652"
+    local bg_search = "#0A64AC"
+    local bg_visual = "#275378"
+    local fg = "#CBE0F0"
+    local fg_dark = "#B4D0E9"
+    local fg_gutter = "#627E97"
+    local border = "#547998"
 
     require("tokyonight").setup({
       style = "night",
       transparent = transparent,
-
       styles = {
-        sidebars = "dark",
-        floats = "dark",
+        sidebars = transparent and "transparent" or "dark",
+        floats = transparent and "transparent" or "dark",
       },
-
       on_colors = function(colors)
         colors.bg = bg
-        colors.bg_dark = bg_dark
-        colors.bg_float = bg_dark
-        colors.bg_highlight = bg_high
-        colors.bg_visual = bg_visual
+        colors.bg_dark = transparent and colors.none or bg_dark
+        colors.bg_float = transparent and colors.none or bg_dark
+        colors.bg_highlight = bg_highlight
+        colors.bg_popup = bg_dark
         colors.bg_search = bg_search
-        colors.bg_sidebar = bg_dark
-        colors.bg_statusline = bg_dark
-
+        colors.bg_sidebar = transparent and colors.none or bg_dark
+        colors.bg_statusline = transparent and colors.none or bg_dark
+        colors.bg_visual = bg_visual
+        colors.border = border
         colors.fg = fg
         colors.fg_dark = fg_dark
         colors.fg_float = fg
         colors.fg_gutter = fg_gutter
         colors.fg_sidebar = fg_dark
-
-        colors.border = border
-
-        colors.blue = blue
-        colors.cyan = cyan
-        colors.green = green
-        colors.magenta = magenta
-        colors.orange = orange
-        colors.red = red
-        colors.yellow = yellow
-      end,
-
-      on_highlights = function(_, c)
-        return {
-          -- Reduce cursor contrast
-          CursorLine = { bg = c.bg_highlight },
-          CursorColumn = { bg = c.bg_highlight },
-
-          LineNr = { fg = c.fg_gutter },
-          CursorLineNr = { fg = c.yellow, bold = true },
-
-          Search = { bg = c.orange, fg = c.bg, bold = true },
-          IncSearch = { bg = c.red, fg = c.bg, bold = true },
-          CursorLineNr = { fg = c.fg, bold = false },
-
-          -- Make search less aggressive
-          Search = { bg = c.bg_search, fg = c.fg },
-          IncSearch = { bg = c.bg_visual, fg = c.fg },
-
-          Visual = { bg = c.bg_visual },
-
-          NormalFloat = { bg = c.bg_float },
-          FloatBorder = { fg = c.blue, bg = c.bg_float },
-          FloatBorder = { fg = c.border, bg = c.bg_float },
-
-          StatusLine = { bg = c.bg_dark, fg = c.fg },
-          StatusLineNC = { bg = c.bg_dark, fg = c.fg_gutter },
-
-          Pmenu = { bg = c.bg_dark, fg = c.fg },
-          PmenuSel = { bg = c.blue, fg = c.bg, bold = true },
-          PmenuSbar = { bg = c.bg_dark },
-          PmenuThumb = { bg = c.blue },
-
-          TelescopeBorder = { fg = c.blue, bg = c.bg_dark },
-          TelescopePromptBorder = { fg = c.green, bg = c.bg_dark },
-          TelescopeResultsBorder = { fg = c.bg_highlight, bg = c.bg_dark },
-          TelescopePreviewBorder = { fg = c.magenta, bg = c.bg_dark },
-
-          PmenuSel = { bg = c.bg_highlight, fg = c.fg },
-          PmenuSbar = { bg = c.bg_dark },
-          PmenuThumb = { bg = c.bg_highlight },
-
-          -- Borders no longer scream for attention
-          TelescopeBorder = { fg = c.border, bg = c.bg_dark },
-          TelescopePromptBorder = { fg = c.border, bg = c.bg_dark },
-          TelescopeResultsBorder = { fg = c.border, bg = c.bg_dark },
-          TelescopePreviewBorder = { fg = c.border, bg = c.bg_dark },
-
-          -- Diagnostics still visible but not neon
-          DiagnosticError = { fg = c.red },
-          DiagnosticWarn = { fg = c.yellow },
-          DiagnosticInfo = { fg = c.blue },
-          DiagnosticHint = { fg = c.cyan },
-
-          GitSignsAdd = { fg = c.green },
-          GitSignsChange = { fg = c.yellow },
-          GitSignsDelete = { fg = c.red },
-        }
       end,
     })
 
