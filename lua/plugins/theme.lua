@@ -1,14 +1,10 @@
-<<<<<<< HEAD
 -- TokyoNight (Fully Refined Configuration)
 
-=======
->>>>>>> 9aca28e (tweask)
 return {
   "folke/tokyonight.nvim",
   priority = 1000,
 
   config = function()
-<<<<<<< HEAD
     -- No transparency (ensures proper layering)
     local transparent = false
 
@@ -35,7 +31,6 @@ return {
 
     -- UI
     local border = "#3B4A5F"
-=======
     local transparent = false
 
     -- Softer, flatter background scale
@@ -61,7 +56,6 @@ return {
 
     -- Subtle borders
     local border = "#2A3442"
->>>>>>> 9aca28e (tweask)
 
     require("tokyonight").setup({
       style = "night",
@@ -101,41 +95,31 @@ return {
 
       on_highlights = function(_, c)
         return {
-<<<<<<< HEAD
-=======
           -- Reduce cursor contrast
->>>>>>> 9aca28e (tweask)
           CursorLine = { bg = c.bg_highlight },
           CursorColumn = { bg = c.bg_highlight },
 
           LineNr = { fg = c.fg_gutter },
-<<<<<<< HEAD
           CursorLineNr = { fg = c.yellow, bold = true },
 
           Search = { bg = c.orange, fg = c.bg, bold = true },
           IncSearch = { bg = c.red, fg = c.bg, bold = true },
-=======
           CursorLineNr = { fg = c.fg, bold = false },
 
           -- Make search less aggressive
           Search = { bg = c.bg_search, fg = c.fg },
           IncSearch = { bg = c.bg_visual, fg = c.fg },
->>>>>>> 9aca28e (tweask)
 
           Visual = { bg = c.bg_visual },
 
           NormalFloat = { bg = c.bg_float },
-<<<<<<< HEAD
           FloatBorder = { fg = c.blue, bg = c.bg_float },
-=======
           FloatBorder = { fg = c.border, bg = c.bg_float },
->>>>>>> 9aca28e (tweask)
 
           StatusLine = { bg = c.bg_dark, fg = c.fg },
           StatusLineNC = { bg = c.bg_dark, fg = c.fg_gutter },
 
           Pmenu = { bg = c.bg_dark, fg = c.fg },
-<<<<<<< HEAD
           PmenuSel = { bg = c.blue, fg = c.bg, bold = true },
           PmenuSbar = { bg = c.bg_dark },
           PmenuThumb = { bg = c.blue },
@@ -145,7 +129,6 @@ return {
           TelescopeResultsBorder = { fg = c.bg_highlight, bg = c.bg_dark },
           TelescopePreviewBorder = { fg = c.magenta, bg = c.bg_dark },
 
-=======
           PmenuSel = { bg = c.bg_highlight, fg = c.fg },
           PmenuSbar = { bg = c.bg_dark },
           PmenuThumb = { bg = c.bg_highlight },
@@ -157,7 +140,6 @@ return {
           TelescopePreviewBorder = { fg = c.border, bg = c.bg_dark },
 
           -- Diagnostics still visible but not neon
->>>>>>> 9aca28e (tweask)
           DiagnosticError = { fg = c.red },
           DiagnosticWarn = { fg = c.yellow },
           DiagnosticInfo = { fg = c.blue },
